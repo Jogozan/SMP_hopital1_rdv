@@ -9,12 +9,17 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+   nombre de rendez-vous : {{rdv|length}}
 
-    This friendly message is coming from:
     <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/seif-/OneDrive/Bureau/SMP_hopital1_rdv/rdv_outlast/src/Controller/ConsultationController.php'|file_link(0) }}">src/Controller/ConsultationController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/seif-/OneDrive/Bureau/SMP_hopital1_rdv/rdv_outlast/templates/consultation/index.html.twig'|file_link(0) }}">templates/consultation/index.html.twig</a></code></li>
+        {% for rdv in rdv %}
+            <li>{{rdv.id}} -- {{rdv.libelle}} -- {{rdv.date}} -- {{rdv.date_deb}} -- {{rdv.date_fin}}
+            {# <a href="{{path('modifRdv',{id:rdv.id})}}">Modifier</a>
+            <a href="{{path('suppRdv',{id:rdv.id})}}"> | Supprimer</a> #}
+            </li>
+        {% else %}
+            Pas de rendez-vous trouvé 
+        {% endfor %}
     </ul>
 </div>
 {% endblock %}
