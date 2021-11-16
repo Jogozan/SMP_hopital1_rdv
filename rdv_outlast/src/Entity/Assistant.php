@@ -32,16 +32,7 @@ class Assistant
     /**
      * @ORM\Column(type="string", length=50)
      */
-    private $login;
 
-    /**
-     * @ORM\Column(type="string", length=65)
-     */
-    private $mdp;
-
-    /**
-     * @ORM\OneToMany(targetEntity=RDV::class, mappedBy="unAssistant")
-     */
     private $desRDV;
 
     public function __construct()
@@ -74,30 +65,6 @@ class Assistant
     public function setPrenom(string $prenom): self
     {
         $this->prenom = $prenom;
-
-        return $this;
-    }
-
-    public function getLogin(): ?string
-    {
-        return $this->login;
-    }
-
-    public function setLogin(string $login): self
-    {
-        $this->login = $login;
-
-        return $this;
-    }
-
-    public function getMdp(): ?string
-    {
-        return $this->mdp;
-    }
-
-    public function setMdp(string $mdp): self
-    {
-        $this->mdp = $mdp;
 
         return $this;
     }

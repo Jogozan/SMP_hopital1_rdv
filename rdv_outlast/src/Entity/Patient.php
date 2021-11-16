@@ -32,16 +32,7 @@ class Patient
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $login;
 
-    /**
-     * @ORM\Column(type="string", length=65)
-     */
-    private $mdp;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
     private $tel;
 
     /**
@@ -52,11 +43,7 @@ class Patient
     /**
      * @ORM\Column(type="string", length=70)
      */
-    private $mail;
-
-    /**
-     * @ORM\OneToMany(targetEntity=RDV::class, mappedBy="unPatient")
-     */
+    
     private $desRDV;
 
     public function __construct()
@@ -93,30 +80,6 @@ class Patient
         return $this;
     }
 
-    public function getLogin(): ?string
-    {
-        return $this->login;
-    }
-
-    public function setLogin(string $login): self
-    {
-        $this->login = $login;
-
-        return $this;
-    }
-
-    public function getMdp(): ?string
-    {
-        return $this->mdp;
-    }
-
-    public function setMdp(string $mdp): self
-    {
-        $this->mdp = $mdp;
-
-        return $this;
-    }
-
     public function getTel(): ?int
     {
         return $this->tel;
@@ -137,18 +100,6 @@ class Patient
     public function setNumSecu(int $numSecu): self
     {
         $this->numSecu = $numSecu;
-
-        return $this;
-    }
-
-    public function getMail(): ?string
-    {
-        return $this->mail;
-    }
-
-    public function setMail(string $mail): self
-    {
-        $this->mail = $mail;
 
         return $this;
     }
