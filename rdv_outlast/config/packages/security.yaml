@@ -35,5 +35,5 @@ security:
          - { path: ^/principal, roles: ROLE_ASSISTANT }
          - { path: ^/principal, roles: ROLE_PATIENT }
 
-    role_hierarchie:
+    role_hierarchy:
         ROLE_ADMIN: ROLE_MEDECIN,ROLE_PATIENT,ROLE_ASSISTANT
