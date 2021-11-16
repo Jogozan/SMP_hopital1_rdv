@@ -52,6 +52,13 @@ class RDV
      */
     private $unAssistant;
 
+ 
+
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $ok;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -137,6 +144,20 @@ class RDV
     public function setUnAssistant(?Assistant $unAssistant): self
     {
         $this->unAssistant = $unAssistant;
+
+        return $this;
+    }
+
+    
+
+    public function getOk(): ?bool
+    {
+        return $this->ok;
+    }
+
+    public function setOk(?bool $ok): self
+    {
+        $this->ok = $ok;
 
         return $this;
     }
