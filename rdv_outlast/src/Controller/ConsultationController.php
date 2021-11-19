@@ -15,7 +15,7 @@ class ConsultationController extends AbstractController
 
         $repository=$this->getDoctrine()->getRepository(RDV::class);
 		$lesRdv=$repository->findAll();
-		return $this->render('consultation/lstAvion.html.twig',['rdv' => $lesRdv,]);
+		return $this->render('consultation/index.html.twig',['rdv' => $lesRdv,]);
         
     }
 }
