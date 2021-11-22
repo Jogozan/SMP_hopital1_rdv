@@ -8,7 +8,7 @@
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 
     table,
-    td {
+    tr {
         border: 1px solid #333;
     }
 
@@ -40,6 +40,8 @@
                 <tr>{{rdv.date|date("m/d/Y")}}</tr>
                 <tr>{{rdv.HeureDeb|date('H:i')}}</tr>
                 <tr>{{rdv.HeureFin|date('H:i')}}</tr>
+               
+                
             {% else %}
                 Pas de rendez-vous trouvé 
             {% endfor %}
