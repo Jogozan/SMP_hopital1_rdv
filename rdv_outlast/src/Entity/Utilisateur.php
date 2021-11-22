@@ -43,7 +43,7 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @ORM\Column(type="string", length=50)
      */
-    private $nom;
+    protected $nom;
 
     /**
      * @ORM\Column(type="string", length=50)

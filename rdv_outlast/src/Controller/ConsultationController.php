@@ -11,7 +11,10 @@ use Symfony\Component\HttpFoundation\Request;
 
 class ConsultationController extends AbstractController
 {
-    #[Route('/consultation', name: 'consultation')]
+    //#[Route('/consultation/', name: 'consultation')]
+     /**
+     * @Route("/consultation/",name="consultation")
+     */
     public function index(): Response
     {
 
@@ -47,19 +50,20 @@ class ConsultationController extends AbstractController
 
 
     /**
-     * @Route("/consulation/{id}",name="validation")
+     * @Route("/validation/{id}",name="validation")
      */
-    public function validation(Request $request): Response
+    public function validation($id,Request $request): Response
     {
 
         $repository = $this->getDoctrine()->getRepository(Rdv::class);
         $rdv = $repository->find($id);
-        $form = $this->handleRequest($request);
+        $form=$this->createForm(RdvType::class,$rdv);
+        $form ->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $rdv = $form->getData();
             $em = $this->getDoctrine()->getManager();
             $em->persist($rdv);
-            $em - flush();
+            $em -> flush();
             return $this->redirectToRoute('consultation');
         }
 
